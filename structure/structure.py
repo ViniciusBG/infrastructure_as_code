@@ -6,7 +6,7 @@ class MyStack(cdk.Stack):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
-        name = "firstDeployedBucket"
+        name = "first-deployed-bucket"
         s3.Bucket(
             self,
             id=name,

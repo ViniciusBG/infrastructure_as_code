@@ -6,5 +6,5 @@ from structure.structure import MyStack
 
 
 app = core.App()
-BootcampCdkTurma5Stack(app, "MyStack")
+MyStack(app, "MyStack")
 app.synth()
