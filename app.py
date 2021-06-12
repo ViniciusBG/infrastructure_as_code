@@ -6,5 +6,5 @@ from structure.structure import MyStack
 
 
 app = core.App()
-MyStack(app, "MyStack")
+MyStack(app, "DeployStack")
 app.synth()
