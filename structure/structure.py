@@ -31,7 +31,7 @@ class MyStack(cdk.Stack):
             encryption=s3.BucketEncryption.S3_MANAGED
         )
 
-        name = "third-deployed-bucket"
+        name3 = "third-deployed-bucket"
         s3.Bucket(
             self,
             id=name3,
