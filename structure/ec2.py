@@ -9,7 +9,7 @@ from aws_cdk import (
 dirname = os.path.dirname(__file__)
 
 
-class EC2InstanceStack(cdk.Stack):
+class EC2InstanceStack(core.Stack):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
