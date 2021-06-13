@@ -22,23 +22,26 @@ class MyStack(cdk.Stack):
             encryption=s3.BucketEncryption.S3_MANAGED
         )
 
-        name2 = "second-deployed-bucket"
+        name = "second-deployed-bucket"
         s3.Bucket(
             self,
-            id=name2,
-            bucket_name=name2,
+            id=name,
+            bucket_name=name,
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             encryption=s3.BucketEncryption.S3_MANAGED
         )
 
-        name3 = "third-deployed-bucket"
+        name = "third-deployed-bucket"
         s3.Bucket(
             self,
-            id=name3,
-            bucket_name=name3,
+            id=name,
+            bucket_name=name,
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             encryption=s3.BucketEncryption.S3_MANAGED
         )
+
+    def __init__(self, scope: cdk.Construct, id: str, **kwargs) -> None:
+        super().__init__(scope, id, **kwargs)
 
         # VPC
         vpc = ec2.Vpc(self, "VPC",
