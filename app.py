@@ -8,5 +8,5 @@ from structure.ec2 import EC2InstanceStack
 
 app = core.App()
 MyStack(app, "DeployStack")
-
+EC2InstanceStack(app,"Ec2Stack")
 app.synth()
