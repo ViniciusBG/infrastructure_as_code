@@ -44,9 +44,13 @@ class MyStack(cdk.Stack):
         super().__init__(scope, id, **kwargs)
 
         # VPC
-        vpc = ec2.Vpc(self, "VPC",
+        vpc = ec2.Vpc(
+            self,
+            "VPC",
             nat_gateways=0,
-            subnet_configuration=[ec2.SubnetConfiguration(name="public",subnet_type=ec2.SubnetType.PUBLIC)]
+            subnet_configuration=[ec2.SubnetConfiguration(
+                name="public",
+                subnet_type=ec2.SubnetType.PUBLIC)]
             )
 
         # AMI 
@@ -58,12 +62,17 @@ class MyStack(cdk.Stack):
             )
 
         # Instance Role and SSM Managed Policy
-        role = iam.Role(self, "InstanceSSM", assumed_by=iam.ServicePrincipal("ec2.amazonaws.com"))
+        role = iam.Role(
+            self,
+            "InstanceSSM",
+            assumed_by=iam.ServicePrincipal("ec2.amazonaws.com"))
 
         role.add_managed_policy(iam.ManagedPolicy.from_aws_managed_policy_name("service-role/AmazonEC2RoleforSSM"))
 
         # Instance
-        instance = ec2.Instance(self, "Instance",
+        instance = ec2.Instance(
+            self,
+            "Instance",
             instance_type=ec2.InstanceType("t2.micro"),
             machine_image=amzn_linux,
             vpc = vpc,
